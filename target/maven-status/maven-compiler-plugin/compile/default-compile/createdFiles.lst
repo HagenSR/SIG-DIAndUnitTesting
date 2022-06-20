@@ -1,0 +1,6 @@
+API\SkyConditions.class
+API\WeatherResponse.class
+API\WeatherAPIHandler.class
+Main\Main.class
+WithDI\HelpfulWeatherDescriber.class
+WithoutDI\HelpfulWeatherDescriber.class
