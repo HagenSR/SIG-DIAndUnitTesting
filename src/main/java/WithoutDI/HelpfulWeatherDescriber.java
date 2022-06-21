@@ -21,9 +21,12 @@ public class HelpfulWeatherDescriber {
         String response = "";
         if(weatherResponse.getTemp() > 32){
             response += "It looks like a hot one!";
-        }else if(weatherResponse.getTemp() < 0){
+        }else if(weatherResponse.getTemp() < 0 && weatherResponse.getTemp() >  -45){
             response += "Grab a jacket! It's cold";
-        }else{
+        }else if(weatherResponse.getTemp() < -45 ){
+            response += "SHEEEEESH It's cold";
+        }
+        else{
             response += "I have no strong opinions about the current weather";
         }
         return response;
