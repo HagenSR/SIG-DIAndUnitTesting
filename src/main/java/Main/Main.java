@@ -20,17 +20,17 @@ public class Main {
         WithoutDI.HelpfulWeatherDescriber withoutDIDescribe = new WithoutDI.HelpfulWeatherDescriber("KFAR");
         System.out.println(withoutDIDescribe.getWeatherDescription());
         
-        // Below is an example of dependency injection, where we pass in and can control what data the API controls
-        WithDI.HelpfulWeatherDescriber withDIDescribe = new WithDI.HelpfulWeatherDescriber("KFAR",new API.WeatherAPIHandler());
+        // Below is the same class but it uses dependency injection
+        WithDI.HelpfulWeatherDescriber withDIDescribe = new WithDI.HelpfulWeatherDescriber("KFAR",new API.WeatherAPIService());
         System.out.println(withDIDescribe.getWeatherDescription());
         
         //Here, We mock the API And have it return predefined, static information.
-        API.WeatherAPIHandler mockedHandler = mock(API.WeatherAPIHandler.class);
-        // This is mockito, which defines what the mock does in a given instance
+        // Line 31 is where we define the mock's behavior
+        // See the Test package for more examples of mocking
+        API.WeatherAPIService mockedHandler = mock(API.WeatherAPIService.class);
         when(mockedHandler.getWeatherData("KFAR")).thenReturn(new API.WeatherResponse(-100));
         WithDI.HelpfulWeatherDescriber mockedDescriber = new WithDI.HelpfulWeatherDescriber("KFAR", mockedHandler);
         System.out.println(mockedDescriber.getWeatherDescription());
-        // See the Test package for more examples of mocking
     }
 
 }

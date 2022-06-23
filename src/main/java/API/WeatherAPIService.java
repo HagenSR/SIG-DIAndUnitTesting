@@ -10,7 +10,9 @@ import com.google.gson.Gson;
 /**
  * @author Sean R Hagen Version Jun 13, 2022
  */
-public class WeatherAPIHandler {
+public class WeatherAPIService implements IWeatherAPIService {
+    
+    @Override
     public WeatherResponse getWeatherData(String stationID) throws Exception {
         String response = getResponseString(stationID);
         return parseResponse(response);
